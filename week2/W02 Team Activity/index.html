@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title>W02 Team Activity</title>
+    </head>
+    <body>
+        <input id="numInput" type="text"/>
+        <button id="sumButton" onclick="displaySum()">Sum</button>
+        
+        <input id="numInput2" type="text"/>
+        <button id="addButton" onclick="displayAdd()">+</button>
+
+        <div id="display"></div>
+
+        <script>
+            function displayInput() {
+                let inputString = document.getElementById('numInput').value;
+                document.getElementById('display').innerHTML = inputString;
+            }
+
+            function displaySum() {
+                let inputString = document.getElementById('numInput').value;
+                let inputNum = Number(inputString);
+                if(!isNaN(inputNum)) {
+                    document.getElementById('display').innerHTML = sum(inputNum);
+                }
+            }
+
+            function displayAdd() {
+                let inputString1 = document.getElementById('numInput').value;
+                let inputString2 = document.getElementById('numInput2').value;
+                let inputNum1 = Number(inputString1);
+                let inputNum2 = Number(inputString2);
+                if(!isNaN(inputNum1) && !isNaN(inputNum2)) {
+                    let sum = inputNum1 + inputNum2;
+                    document.getElementById('display').innerHTML = sum;
+                }
+            }
+
+            function sum(input) {
+                let sum = 0;
+                for(let i = 1; i <= input; i++) {
+                    sum += i;
+                }
+
+                return sum;
+            }
+        </script>
+    </body>
+</html>

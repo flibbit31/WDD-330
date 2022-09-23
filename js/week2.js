@@ -1,19 +1,23 @@
 function createLinks() {
     const links = [
         {
-            label: "Week 1",
-            url: "week1/index.html"
+            label: "Back",
+            url: "../index.html"
+        },
+        
+        {
+            label: "Notes",
+            url: "notes.html"
         },
 
         {
-            label: "Week 2",
-            url: "week2/index.html"
+            label: "Team Activity",
+            url: "W02 Team Activity/index.html"
         }
     ];
 
     let htmlString = "";
-    for(let i = 0; i < links.length; i++)
-    {
+    for(let i = 0; i < links.length; i++) {
         htmlString += "<li><a href=\"" + links[i].url + "\">" + links[i].label + "</a></li>";
     }
     document.getElementById("links").innerHTML = htmlString;
