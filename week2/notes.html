@@ -11,7 +11,127 @@
         <h4>Notes and Questions</h4>
         <ol id="links"></ol>
         <p>
-            
+            Ch2: 
+            JavaScript:
+            typeof returns the datatype of a variable or value.
+            all non-primitives are considered objects.
+            let and const to declare variables that have block scope so they only exist inside the block they were declared in.
+            const objects can be changed(mutated), but cannot be changed to a different object.
+            Object: const name = { value: ‘Alexa’ };
+            Prefer let over var.
+            Local scope variables can overwrite global scope variables if let or const isn’t used.
+            When you don’t use let or const, variables have global scope.
+            It is best to always use let or const.
+            Avoid starting with underscore or $, as they are used for other purposes.
+            I’ll use camel case.
+            Changing an object changes all references to that object.
+            If you want “ inside a string literal, enclose it in ‘’, and vice-versa.
+            Use .length to see a string length. Strings also offer .toUpperCase() and .toLowerCase(), .charAt(), indexOf(), lastIndexOf(), includes(), startsWith(), endsWith(), concat(), trim(), and repeat().
+            Use `` to make a template literal. Insert JavaScript code with ${ code } inside the ``.
+            Symbols allow for variable names to clash.
+            Number.isInteger() is useful.
+            0x denotes hex numbers. 0o denotes octal numbers. 0b denotes binary numbers.
+            2e3 means 2*10^3.
+            Use two dots when accessing methods from a number value.
+            toFixed() rounds numbers.
+            ** means exponentiation.
+            ++num increases the number then returns it, whereas num++ returns the value, then increases it.
+            Infinity and -Infinity refer to values that are two great for JavaScript.
+            isFinite() determines if the number isn’t Infinity, -Infinity, or NaN.
+            Number(‘23’); converts ‘23’ into 23 or string to number, use String(3) to convert a number to a string.
+            toString(2) changes a number to base 2.
+            parseInt() and parseFloat() also exist.
+            Boolean(‘hello’); return true.
+            JavaScript uses lazy evaluation with logical operators (it only evaluates what is necessary to get the final result).
+            == both types don’t have to be the same.
+            === both types must be the same.
+            NaN === NaN returns false, you must instead use .isNaN().
+            Always use ===.
+            There is also != and hard not equals (!==).
+            prompt() opens a prompt.
+            alert() displays an alert box.
+
+            Ch3.
+            Const heroes = []; to create an array.
+            Const avengers = [‘Captain America’, ‘Iron Man’];
+            Arrays can have different datatypes in them.
+            Delete avengers[0] will replace index 0 with undefined.
+            Destructuring arrays.
+            Const[x,y] = [1,2];
+            X returns 1 and y returns 2.
+            [x,y] = [y,x]; swaps the values.
+            You can change the length value of arrays with avengers.length = 8;
+            .pop() removes the last item in the array and returns it.
+            .push() adds to the end of the array.
+            .shift() removes the first item.
+            .unshift() adds to the beginning of the array.
+            .concat() returns an array with the combined arrays.
+            .join() puts commas, or any string you want between elements in the array and returns it as a string.
+            Slice creates a subarray, splice replaces one or more elements in an array and returns the removed element(s). splice() can also be used to remove elements from an array without leaving an empty slot by not including a value to replace the removed value. 
+            new Set() to create a set. Add values with .add(). Different objects with identical values are considered different in a set.
+            .size() to find the size of a set. Use .has() to check if a set contains a value and is faster than includes()or indexOf(). Use delete() to remove values from sets.
+            Array.from() to convert from set to array.
+            Use WeakSet() to allow garbage collection on the set, though they only allow non-primitive data types.
+            new Map() to create a map. Maps have set(key, value), and get(key), and has(key). You can also use.size. You can use delete(key), clear() deletes everything in the map. You can convert to an array with Array.from(the map).
+            Switch (number) {
+            case 4:
+            console.log(‘You rolled a four’);
+            break;
+            default:
+            console.log(“You rolled a number less than four’);
+            break;
+
+            for(const value of avengers) {
+            } loops through avengers array with value being the index.
+            You can use for-of on sets, but not weaksets.
+            To iterate over a map’s keys, use for(const key of romanNumerals.keys()) {
+            console.log(key);
+            }
+            You can also use romanNumerals.values() too.
+            You can iterate over both key and value with .entries() using 
+            for(const [key,value] of RomanNumerals.entries()) {
+                console.log(`${key} in roman numerals is ${value}`);
+            This can also be used with arrays within arrays (multidimensional arrays).
+            Ch4:
+            Functions can be stored in variables and stored in arrays.
+            Anonymous function stored in goodbye:
+            const goodbye = function() {
+                console.log(‘Goodbye World!’);
+            };
+            named function stored in goodbye
+            const goodbye = function bye() {
+                console.log(‘Goodbye World!’);
+            };
+            Don’t repeat yourself.
+            Call a function in a variable with the variable then () like goodbye(); Without (), you are referencing the function itself instead of calling it.
+            Failing to provide parameters needed by a function will result in the values being undefined. Handing off too many parameters will cause the extra parameters to be ignored.
+            The arguments object contains all arguments of a function.
+            Args is the last argument in the function.
+            function fun(…args) {
+            Stores all arguments inside an array called args.
+            Function hello(name=’World’) default parameters.
+            Arrow function: const square = x => x*x; or const add = (x,y) => x + y;
+            Arrow function without parameters has empty ().
+            Function expressions can only be invoked after it is assigned to a variable.
+            function callFunction(callback) {
+                If(typeof(callback) === ‘function’) {
+                    callback();
+                 }
+            }
+            function numerically(a,b) {
+                return a-b;
+            }
+            sort(numerically);
+            arrayVariable.forEach() method accepts a function to call for each element in the array.
+            map method creates an array with the return value of each call.
+            Map callback functions can have three parameters, the current element in the array, the current index, and the whole array itself.
+            reduce() method.
+            Filter() method.
+            reduceRight(), every(), find(), some().
+            functions can access variables from functions that have called it.
+            Refactoring code does not change the function of code, but makes it more flexible and easier to maintain.
+            Functions that don’t return a value will return undefined.
+            Function expressions cannot be invoked until after they are defined.
         </p>
     </body>
 </html>
