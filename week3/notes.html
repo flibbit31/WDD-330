@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WDD 330 Portfolio - Week 3 - Notes</title>
+        <script src="../js/week3Notes.js"></script>
+    </head>
+    <body onload="createLinks()">
+        <h1>WDD 330 Portfolio</h1>
+        <h2>Benjamin George Beales</h2>
+        <h3>Week 3</h3>
+        <h4>Notes and Questions</h4>
+        <ol id="links"></ol>
+        <p style="white-space: pre-wrap">
+            Let user = {
+                Name: “John”,
+                Age: 30
+            };
+            User.sayHi = function() {
+                Alert(“Hello”);
+            };
+            User.sayHi();
+            
+            User = {
+                sayHi() {
+                    alert(“Hello”);
+                }
+            };
+
+            Javascript uses unbound this, so that multiple objects can use the same function.
+            When “this” is used in arrow functions (=>), “this” references the outer function’s object.
+            Object literal:
+            Const superman = {
+                Name: ‘Superman’,
+                ‘real name’: ‘Clark Kent’,
+             }
+            
+            New properties and methods can be added to objects at run-time.
+            const name = ‘Iron Man’;
+            const realName = ‘Tony Stark’;
+            
+            const ironman = (name, realName} is the same as const ironman = { name: name, realName: realName };
+            
+            superman.name is the same as superman[‘name’]
+            latter is the only way to access properties and methods with nonstandard names.
+            Superman[“real” + “ “ + “name”]
+            Keys and properties can be computed at run-time.
+            ‘city’ in superman; checks if the superman object has the ‘city’ property or if it has inherited that property.
+            Superman.hasOwnProperty(‘city’); checks if the superman object has a city property that has not been inherited.
+            To loop through all an object’s properties, use for (const key in superman) {
+            console.log(key + “: “ + superman[key]);
+            }
+            for (const key of Object.keys(superman)) {
+            will iterate through all of an Objects keys (AKA properties).
+            Object.values works returns an array of the object’s values.
+            To add a property to an already existing object:
+            superman.city = ‘Metropolis’;
+
+            Properties don’t necessarily stay in the same order they were entered.
+            Remove a property with delete superman.fly  (no parenthesis after the method called fly)
+            Objects are copied by reference.
+            function greet({greeting,name,age}) {
+                return ‘${greeting}! My name is ${name} and I am ${age} years old.’;
+            }
+            greet({ greeting: `What’s up dude`, age: 10, name: `Bart` });
+            Passing an object instead of variables should work.
+            Object literals can be used as a namespace for functions and variables to keep them from clashing with other functions and variables with the same names.
+            JSON.parse(JSONString); converts a JSON string into a JavaScript object.
+            stringify(anObject); converts an object into a JSON string. It ignores the methods in the object.
+            JSON.stringify(wonderWoman, null, “ “); Adds a new line between each key-value pair.
+            Math.trunc() removes all numbers after the decimal point in a floating-point number. 4.9 becomes 4, which is different than Math.round().
+            Trigonometric math is done in radians.
+
+            The Math object can have rounding errors and different JavaScript engines will get different answers to the same calculations.
+            Math.random() creates random number between 0(inclusive) and 1 (exclusive).
+            Use a Date object’s toString method to see the time and date.
+            Create a date object with the current date and time with new Date();
+            January is represented with a 0, December is represented by an 11.
+            Sunday is 0, Saturday is 6.
+            Dates of the month start at 1 instead of 0.
+            Use getFullYear() instead of getYear().
+
+            Create a regular expression with new RegExp(string);
+            In the browser console, press tab to autocomplete and the up arrow key to select the previous command entered.
+            Body element is const body = document.body;
+            Use nodeType to see what kind of node something is.
+            Node lists are an array-like object that can use [] index notation. Use Array.from() to convert to an actual array.
+            getElementsByTagName() and getElementsByClassName()
+            query selector uses css selector syntax, # for id and . for classes.
+            querySelector can be used on elements as well as on “document”.
+            childNodes returns all child nodes, including text nodes.
+            Children only returns elements that are children of that node, so it ignores text nodes.
+            You can also use parentNode, nextSibling (for the sibling node listed after the current node), and previousSibling.
+            Use wonderWoman.firstChild.nodeValue or wonderWoman.textContent to get the text as a string.
+            wonderWoman.getAttribute(‘class’); returns the value of the class attribute.
+            Use wonderWoman.setAttribute(‘class’, ‘villain’); to set the class to “villain”.
+            setAttribute can add non existing attributes too.
+            Use classList to avoid overwriting all classes of an element.
+            wonderWoman.classList.add(‘warrior’); adds the warrior class to the element.
+            wonderWoman.classList.remove(‘warrior’); removes that class.
+            wonderWoman.classList.contains(‘hero’); checks if the element contains the hero class.
+            Use createElement(‘li’); to create a new list item.
+            Use createTextNode()
+            Use appendChild() to add a Node as a child of another Node.
+            You can also use insertBefore() to place a child anywhere you want in the list of childNodes.
+            Nodes must be cloned to exist in multiple places in a document.
+            removeChild() can be used.
+            replaceChild() can be used.
+            innerHTML returns all html inside an element as a string.
+            You cannot insert scripts using innerHTML.
+            Live collections are updated even after they are retrieved from a method.
+            Be careful using [] index notation on node lists. The positions of nodes can be changed with add and remove methods.
+            Use superman.style.border = “red 2px solid”; to change the border CSS property of the superman element.
+            Use backgroundColor instead of background-color in JavaScript when referencing a CSS property.
+            superman.style[‘background color’] = ‘blue’; can be used as well.
+            styles accessed in this way can only reference inline styles and styles set with JavaScript. You must use getComputedStyle() for all style information, but it is read-only.
+            getComputedStyle().getPropertyCSSValue(), can be used to get a particular CSS properties value, though chrome doesn’t allow this.
+            It’s best not to change styles with JavaScript but rather change the class of an element so that it activates some CSS in an external stylesheet.
+
+            Ch 7:
+            A blocking approach involves continuously checking to see if an event has happening, which, “blocks” the rest of the program from running.
+            Non-blocking in JavaScript uses event listeners.
+            document.body.addEventListener(“click”, doSomething); Calls doSomething function when the user clicks anywhere on the page.
+            The click event occurs with clicking the mouse, pressing the Enter key, or tapping the screen.
+            Avoid inline event handling.
+            addEventListener() is called on Node objects. If it is called without a node, it applies to the global object, which is usually the whole browser window.
+            In CSS, use .highlight to select elements that have been highlighted.
+            The event listener callback function is passed an event object.
+            An event object’s type can be found with event.type
+            The node that fired the event can be found with event.target	
+            Event also has .screenX, .screenY, .clientX, .clientY, .pageX, .pageY.
+            Mousedown and mouseup are both called before the click event.
+            Mousemove event occurs when the mouse moves while it is over the specified element.
+            Keydown continues to occur as a key is held down.
+            Keypress occurs after keydown but before keyup. It only applies to keys that produce character input, plus the delete key. This is a reliable technique.
+            Keys like ctrl and shift activate keydown and keyup but not keypress because they don’t print an actual character.
+            addEventListener(‘keydown’, (event) => {
+            if (event.key === ‘c’ && event.ctrlKey) {
+                console.log(‘Action cancelled!’);
+            }
+            });
+            Checks if c was pressed while the ctrlKey was down.
+            
+            All events, even mouse events, can be checked if the shift, ctrl, etc. key was being pressed when the event happened.
+            The click event will except touch taps as well.	
+            Hammer.JS and zingtouch can help makes touch gestures easier to listen for.
+            Events.touches returns a list of touches that are occurring at that time on the screen (for multitouch).
+            You can use removeEventListener(‘click’ myFunction);
+            Don’t use anonymous functions with addEventListener() if you need to remove the event listener later.
+            Use event.preventDefault() to prevent the event from executing default behavior, though some behaviors can’t be prevented. Check out cancellable and defaultPrevented.
+            Bubbling propagation means that events are fired in order from innermost element to outermost element. Capturing is the opposite of this. Add a Boolean value as the third parameter of addEventListener to determine if the propagation will capture.
+            Event.stopPropagation() stops an event from continuing to bubble.
+            Event delegation: You can add an event listener to a parent element and then have the callback function determine which child element was the target with event.target.
+            What is the view object mentioned in the book? Is it a namespace? It is an object with properties and a method related to the view.             
+        </p>
+    </body>
+</html>
