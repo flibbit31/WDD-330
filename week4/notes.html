@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WDD 330 Portfolio - Week 4 - Notes</title>
+        <script src="../js/week4Notes.js"></script>
+    </head>
+    <body onload="createLinks()">
+        <h1>WDD 330 Portfolio</h1>
+        <h2>Benjamin George Beales</h2>
+        <h3>Week 4</h3>
+        <h4>Notes and Questions</h4>
+        <ol id="links"></ol>
+        <p style="white-space: pre-wrap">
+            Const form = document.forms[‘search’];
+            The blur event occurs when an element loses focus.
+            The change event occurs when a user changes a field and then it loses focus.
+            Use event.preventDefault() to stop a submit button from submitting a form.
+            The placeholder attribute in html can add placeholder text to an input field.
+            Use type=’text’ when you intend for something to be a text field, even though it isn’t required.
+            Put the input tag inside the label tag.
+            If several elements in a form have the same name attribute, they can all be accessed using form.[insert name here];
+            Automatically check a box with the checked attribute in html.
+            All radio buttons in a set must have the same name attribute.
+            Use form.[radio buttons name].value to find the selected radio button’s value.
+            Remember that hidden and file input fields are available.
+            Use the selected attribute in html to automatically select an option from a drop-down list.
+            form[select name].selectedIndex returns the index of the selected option.
+            You can put text in a textarea by putting text between opening and closing textarea tags.
+            Buttons don’t have to be inside a form.
+            Use both client-side and server-side validation.
+            You can put a keyup listener on an input element to validate input as it is being entered.
+            Use the disabled attribute to disable a submit button.
+
+            Ch 12:
+            Prototype based languages use objects(prototypes) as a basic for creating other objects.
+            Use literals to create arrays.
+            const greenDice = new redDice.constructor(10); would create an object with the same type as the redDice object.
+            The prototype allows you to add methods and property values to all instances of a class through instances inheriting from the prototype.
+            Never use arrays or objects as a default value in prototype. (Though you can set default values in constructors in a class declaration.
+            What does the book mean when it says that all prototype chains end at the Object() contructor function?
+            Monkey-patching involves adding methods and properties to built in objects, which is discouraged. You can instead create a subclass to extend the functionality.
+            To create an object based on another object, use Object.create(object);
+            Return this if a method doesn’t need to return anything else.
+            Use bind(this) so that nested functions using “this” will refer to the object that called the outer function.
+            To borrow a method, use banana = Gorilla.prototype.banana;
+            Then, banana.call(object, arguments);
+            Use export, default export, and import for module functionality.

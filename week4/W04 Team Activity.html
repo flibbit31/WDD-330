@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>W04 Team Activity - Team 6</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                height: 100vh;
+                width: 100vw;
+            }
+
+            .board {
+                background-color: blue;
+                margin: auto;
+                display: grid;
+                grid-template-columns: repeat(3, auto);
+                justify-content: center;
+                height: 30rem;
+                width: 30rem;
+            }
+
+            .cell {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px black solid;
+                height: 10rem;
+                width: 10rem;
+            }
+
+            .cell:first-child, .cell:nth-child(2), .cell:nth-child(3) {
+                border-top: none;
+            }
+
+            .cell:nth-child(3n + 1) {
+                border-left: none;
+            }
+
+            .cell:nth-child(3n + 3) {
+                border-right: none;
+            }
+
+            .cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+                border-bottom: none;
+            }
+
+            p {
+                color: black;
+                font-size: 8rem;
+            }
+
+        </style>
+    </head>
+    <body onload="initialize()">
+        <section class="board" id="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </section>
+
+        <script>
+            let playerTurn = true;
+            document.getElementById('board').addEventListener("touchend", touchCell);
+            document.getElementById('board').addEventListener("click", touchCell);
+
+            function touchCell(event) {
+                if (!event.target.classList.contains('filled'))
+                {
+                    if (playerTurn) {
+                        event.target.innerHTML = "<p>X</p>";
+                    }
+                
+                    else {
+                        event.target.innerHTML = "<p>O</p>";
+                    }
+
+                    event.target.classList.add('filled');
+                    playerTurn = !playerTurn;
+                }
+            }    
+        </script>
+    </body>
+</html>
