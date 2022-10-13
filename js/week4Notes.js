@@ -1,14 +1,10 @@
-function createLinks() {
-    const links = [
-        {
-            label: "Back",
-            url: "index.html"
-        }
-    ];
+import { addLinks } from './addLinks.js';
 
-    let htmlString = "";
-    for(let i = 0; i < links.length; i++) {
-        htmlString += "<li><a href=\"" + links[i].url + "\">" + links[i].label + "</a></li>";
+const links = [
+    {
+        label: "Back",
+        url: "index.html"
     }
-    document.getElementById("links").innerHTML = htmlString;
-}
+];
+
+addLinks(links);

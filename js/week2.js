@@ -1,24 +1,20 @@
-function createLinks() {
-    const links = [
-        {
-            label: "Back",
-            url: "../index.html"
-        },
-        
-        {
-            label: "Notes",
-            url: "notes.html"
-        },
+import { addLinks } from './addLinks.js';
 
-        {
-            label: "Team Activity",
-            url: "W02 Team Activity/index.html"
-        }
-    ];
+const links = [
+    {
+        label: "Back",
+        url: "../index.html"
+    },
+    
+    {
+        label: "Notes",
+        url: "notes.html"
+    },
 
-    let htmlString = "";
-    for(let i = 0; i < links.length; i++) {
-        htmlString += "<li><a href=\"" + links[i].url + "\">" + links[i].label + "</a></li>";
+    {
+        label: "Team Activity",
+        url: "W02 Team Activity/index.html"
     }
-    document.getElementById("links").innerHTML = htmlString;
-}
+];
+
+addLinks(links);
