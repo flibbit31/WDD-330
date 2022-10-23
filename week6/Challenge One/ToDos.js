@@ -1,3 +1,4 @@
+//setup global variables
 let selectedFilter = "all";
 let toDoList = [];
 let filteredToDoList = [];
