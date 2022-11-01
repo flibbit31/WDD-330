@@ -10,7 +10,97 @@
         <h4>Notes and Questions</h4>
         <ol id="links"></ol>
         <p style="white-space: pre-wrap">
-            
+Ch 11:
+function.call(arg) arg is “this” in the function.
+Memoization allows storing the result of a function with the same argument for later.
+Use an IIFE for temporary variables.
+(function() {
+    ‘use strict’;
+    //my code
+})();
+Functions can be redefined inside or outside themselves. If you redefine a function, it’s properties are lost (because you are assigning a new function to the function variable).
+A function can be redefined the first time it is called depending on the browser’s capabilities:
+function ride(){
+    if (window.unicorn) { 
+        ride = function(){
+        // some code that uses the brand new and sparkly unicorn methods
+        return 'Riding on a unicorn is the best!';
+        }
+    } else {
+        ride = function(){
+        // some code that uses the older pony methods
+        return 'Riding on a pony is still pretty good';
+        }
+    }
+    return ride();
+}
+Javascript is singlethreaded, so, asyncronus callback functions wait until the current code is done executing.
+Promises are better than callbacks. The async and await keywords can be even more useful.
+Example:
+const dice = {
+sides: 6,
+    roll() {
+        return Math.floor(this.sides * Math.random()) + 1;
+    }
+}
+
+console.log('Before the roll');
+
+const roll = new Promise( (resolve,reject) => {
+    const n = dice.roll();
+    if(n > 1){
+        setTimeout(()=>{resolve(n)},n*200);
+    } else {
+        setTimeout(()=>reject(n),n*200);
+    }
+});
+
+roll.then(result => console.log(`I rolled a ${result}`) )
+.catch(result => console.log(`Drat! ... I rolled a ${result}`) );
+
+console.log('After the roll');
+
+A function declared inside another function has access to the outer functions variables.
+If the outer function then returns the inner function, the inner function will still have access to the outer function’s variables when called.
+Generator: 
+function* fibonacci(a,b) {
+    let [ prev,current ] = [ a,b ];
+    while(true) {
+        [prev, current] = [current, prev + current];
+        yield current;
+    }
+}
+Use sequence = fibonacci(1, 1); and sequence.next() to get the next value.
+You can also iterate over the generator with for (n of sequence) {
+//n is the returned value
+}
+Currying allows a function to remember arguments you’ve passed and create a function that requires the rest of the arguments.
+How to curry any function:
+function curry(func,...oldArgs) {
+    return function(...newArgs) {
+        const allArgs = [...oldArgs,...newArgs];
+        return func(...allArgs);
+    }
+}
+
+Make functions as pure as possible.
+
+Ch 13:
+The Fetch API is newer than AJAX.
+Fetch uses promises, so, you can use .then for what to do with responses, and .catch for dealing with network errors. (.catch won’t catch 404 status codes and other error codes).
+Response objects can return promises too. Here’s how to get a promise of text from a response:
+fetch(url)
+.then( response => response.text() ); // transforms the text stream into a JavaScript string
+.then( text => console.log(text) )
+.catch( error => console.log('There was an error: ', error))
+Use response.blob() for files.
+Use response.json() for json, automatically converts to a JavaScript object.
+You can send a Request object to obtain data from a server.
+Headers can be included in Requests and Responses. They can include resource file-type, cookie information, authentication information, and when the resource was last modified.
+What do the different possible Headers mean?
+Use FormData to serialize a form so that it can be sent over AJAX.
+Add to FormData objects with append(key, value);
+
         </p>
 
         <script type = "module" src="../js/week7Notes.js"></script>
