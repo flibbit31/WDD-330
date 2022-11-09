@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WDD 330 Portfolio - Week 8 - Notes</title>
+    </head>
+    <body>
+        <h1>WDD 330 Portfolio</h1>
+        <h2>Benjamin George Beales</h2>
+        <h3>Week 8</h3>
+        <h4>Notes and Questions</h4>
+        <ol id="links"></ol>
+        <p style="white-space: pre-wrap">
+            CH 8:
+            CSS3:
+            3D translation is possible.
+            Translated elements are moved relative to their current positions.
+            transform: translate(45px, -45px); moves the element 45 pixels right and 45 pixels up.
+            Use different code for older browsers.
+            Transforms don’t work on inline elements, so use something like inline-block.
+            Transform: scale(x, y).
+            Don’t use multiple transforms, put all transformations in one transform attribute.
+            To avoid a scaled Element from going over other elements, use height, width, or font-size.
+            Transform: rotate(10deg);
+            Transform: skew(15deg, 4deg);
+            Transform: origin is the point at which transforms are applied from.
+            Transform: transforms locally, not globally.
+            Transitions only work with properties with mid-points(color, size, not border-style).
+            Transition-property: (list of properties to be animated).
+            Transition-duration: transition time in seconds or milliseconds.
+            Transition-timing-function: ease, linear, ease-in, ease-out, or ease-in-out, cubic Bezier function.
+            Steps:
+            Transition-delay: delay for the animation to start in milliseconds.
+            Use negative delays to start an animation part way through.
+            To use multiple transitions, separate values of each transition with a comma: 
+            Transition-property: transform, color
+            Transition-duration: 0.2s, 0.1s.
+            CSS Animation:
+            Transitionend event happens when transition ends and goes back to normal.
+            @keyframes myAnimation {
+                0% {
+                Background-color:yellow;
+                }
+                100% {
+                Background-color:green;
+                }
+            }
+            Animation-name : myAnimation;
+            Animation-duration: 300ms;
+            Animation-timing-function: works like transition-timing-function.
+            Animation-iteration-count: infinite or other integer;
+            Animation-direction: what direction should each animation iteration run in?
+            Animation-delay: works like transitions.
+            Animation-fill-mode: What should appear before and after animation?
+            Animation-play-state: shows animation running or paused state, which can be manipulated in CSS or JavaScript.
+            Multiple animations on one element:
+            Animation:
+            AnimationOne 300ms ease-in backwards,
+            AnimationTwo 600ms ease-out 1s forwards;
+            
+            Ch 12:
+            Use the canvas tag with width and height attributes (usually don’t use width and height in CSS).
+            Setting up canvas: var canvas = document.getElementById(“myCanvas”);
+                                              var context = canvas.getContext(“2d”);
+            
+            Context properties: strokeStyle, fillStyle, fillRect(), strokeRect, 
+            Use onload on images to call a function when it loads.
+            //draw a circle
+            context.beginPath();
+            context.arc(x, y, radius, startAngle, endAngle, bool anticlockwise). Angles are in radians.
+            Context.closePath();
+            Context.strokestyle = “red”;
+            Context.fillStyle = “blue”;
+            Context.lineWidth = 3;
+            Context.fill();
+            Context.stroke();
+            
+            //save drawing
+            Window.open(canvas.toDataURL(“image/png”));
+            
+            //draw drawing
+            Context.drawImage(image, 0, 0);
+            
+            Context.getImageData(0, 0, 100, 100); get image data.
+            Context.putImageData(imageData, 0, 0);
+            
+            To pass parameters to a function in an event listener function
+            Video.addEventListener(“play”, function() {
+            Draw(video, context,canvas);
+            }, false);
+            
+            setTimeout(function() {draw(video, context, canvas); }, 0); This calls draw over and over again with 0 delay.
+            Canvas.width = canvas.width clears the canvas.
+            Text on canvas:
+            fillStyle, textAlign, font, lastly: fillText.
+            Vector images with SVG preserve quality when blown up or shrunk down.
+            viewBox attribute defines location, width, and height of SVG image.
+            Circle element goes inside the svg element.
+            Use desc tags to describe an SVG shape or element. Put the shape/element after the desc tag.
+            Inkscape lets you create SVG images in an image editor.
+            Raphael lets you draw and animate SVG using JavaScript easier.
+            Code from the book:
+            var container = Raphael(document.getElementById("spinner"), 125, 125);
+            var spinner = container.image("images/spinnerBW.svg", 0, 0, 125, 125);
+            var attrsToAnimate = { transform: "r720" };
+            spinner.animate(attrsToAnimate, 60000);
+            
+            Canvas is faster, but SVG allows access to shapes after they have been drawn.
+            
+            Drag and Drop + File API allows users to drag files to the website.
+            
+            Make elements draggable, then listen for dragstart on draggable elements, and dragover and drop events on elements that interact with dragged elements.
+            Add data to an event with event.dataTransfer.setData;
+            Use event.originalEvent.getData to get the data;
+            Use event.preventDefault() in dragover and drop event handler functions.            
+        </p>
+
+        <script type = "module" src="../js/week8Notes.js"></script>
+    </body>
+</html>
