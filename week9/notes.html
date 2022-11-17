@@ -10,7 +10,82 @@
         <h4>Notes and Questions</h4>
         <ol id="links"></ol>
         <p style="white-space: pre-wrap">
-               
+            Ch 9: 
+            Only browser environments have a window object.
+            Global variables and functions are members of the window object (or global object in other environments).
+            Alert(), confirm, and prompt() all pause the program.
+            Alert() displays an alert, prompt displays the same, but with ok and cancel buttons, and prompt displays a message with an input box.
+            Window.navigator.userAgent is unreliable.
+            Window.location has information about the current page(URL). You can use this to redirect to another page.
+            Window.location.reload() will reload the current page.
+            Window.history shows previously visted pages in the current browser session.
+            Window.history.go(1) goes forward 1 page and window.history.go(-1) goes back one page.
+            “const popup = window.open('https://sitepoint.com','
+            SitePoint','width=400,height=400,resizable=yes');” opens a new window and stores a reference to it in “popup”.
+            Popup.close() closes the window.
+            These methods can be annoying, so be cautious.
+            Window.screen for resolution and color depth information.
+            “Cookies can only be read by a web page from the same domain that set them.”
+            Document.cookie = “hero=true”; creates a new cookie value.
+            Document.cookie = “hero=false”; updates the hero value.
+            Split up cookie values in a cookie with const cookieArray = document.cookie.split(“; “);
+            By default, cookies are deleted at the end of a session. To change this:
+            Document.cookie = `name=Batman; expires=${ expiryDate.toUTCString()}`; where expiryDate is a Date object.
+            Cookies with sensitive information shouldn’t rely on cookie expiry working properly. It doesn’t always work properly.
+            Document.cookie = ‘name=Batman; path=/’ will allow everything in the domain to access the cookie.
+            Delete a cookie by setting it’s expiration to a time in the past.
+            Try a library like Cookies.js or jsCookie for cookie handling.
+            setTimeout() allows you to call a method at regular intervals.
+            setInterval() does the same thing but repeats the method.
+            requestAnimationFrame(animationFunction()) is more efficient.
+            Use cancelAnimationFrame() to stop an animation.
+            Generally use CSS for animation instead of JavaScript.
+
+            Ch 14:
+            Data- attributes can’t be used by external pages.
+            Data-max-length in HTML is accessed with dataset.maxLength in JavaScript.
+            Use feature detection before using API methods.
+            sessionStorage works like localStorage, but only stores something for one browser session.
+            getItem and setItem, as well as localStorage.name can be used.
+            removeItem() exists too.
+            Clear() deletes everything in localStorage.
+            Navigator.geolocation.getcurrentPosition(youAreHere); passes the user’s location to the youAreHere function.
+            You can get the accuracy of a position too.
+            Worker scripts:
+            Const worker = new Worker(‘task.js’);
+            Worker.postMessage(‘Hello’); message from main script to worker script.
+            Self.postMessage(‘Finished’); message from worker script to main script.
+            Worker.addEventListener(‘message’, (event) => {
+            }, false); listen for messages from the worker.
+            Worker.terminate(); terminate worker.
+            Self.close(); terminate worker.
+            If(window.Worker) { } checks if web workers are supported.
+            Event.data has the data from the worker message.
+            Messages between the main script and worker script are strings?
+            Shared web workers can be accessed by any script in the domain.
+            Look into the service worker API.
+            WebSockets:
+            To create a WebSocket (two way communication instead of request and response) use const connection = new WebSocket(URL);
+            Connection.addEventListener(‘open’, functionToCallWhenConnected, false);
+            Send to a server with connection.send(message);
+            Listen for messages from the server with connection.AddEventListener(‘message’, (event) => {
+                Console.log(event.data);
+            }, false);
+            Connections can listen for “close” and “error” events too.
+            If(window.Notificatioin) {
+                Notification.requestPermission() to set up notifications with the user’s OS.
+            Const notification = new Notification(Title, { body:, icon: });
+            You can listen to click, show, and close events on the notification created.
+            Use audio and video tags for audio and video. Src points to the video or audio, and the controls attributes attaches controls(play, pause, etc) to the video or audio.
+            The video or audio can be controlled in Javascript by getting it using the DOM.
+            Use video.addEventListener(‘loadmetadata’, videoFunctions); to make sure that the video has loaded before checking it’s properties.
+            Canvas:
+            Get 2D context with canvas.getContext(‘2d’);
+            Context.lineWidth exists.
+            Context.fillRect() and context.strokeRect()
+            Use context.beginPath() to draw lines and arcs.
+            Use context.fillText(text, x, y); for drawing text.
+            Use shims and polyfills for users with older browsers.
         </p>
 
         <script type = "module" src="../js/week9Notes.js"></script>
