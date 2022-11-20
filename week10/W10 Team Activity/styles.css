@@ -1,0 +1,16 @@
+body {
+    background-color: beige;
+    padding: 16px;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    border: 1px solid darkblue;
+}
+
+.selected {
+    background-color: crimson;
+}
