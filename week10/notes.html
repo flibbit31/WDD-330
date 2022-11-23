@@ -10,6 +10,29 @@
         <h4>Notes and Questions</h4>
         <ol id="links"></ol>
         <p style="white-space: pre-wrap">
+            Document 1:
+            Two types of client-side validation:
+            Built-in form validation and JavaScript validation
+            Valid form elements have the :valid CSS pseudo-class, otherwise :invalid.
+            Indicate to the users what fields are required.
+            Pattern attribute for regexps.
+            Constraint Validation API uses JavaScript.
+            ValidityState Object properties: patternMismatch, tooLong, tooShort, rangeOverflow, rangeUnderflow, typeMismatch, valid, valueMissing, willValidate.
+            setCustomValidity() set’s a custom error message.
+            reportValidity() will set input as invalid if the input is invalid so that the form can’t submit.
+            Use form novalidate to prevent HTML automatic validation.
+            You can do validation without the constraint validation API or use Validate.js.
+
+            Document 2: Fetch API:
+            Response.json() returns another Promise.
+            Credentials: ‘include’ causes the browser to send credentials in the request.
+            Put the data you want to send in the body: of a POST or PUT request.
+            Response.body.getReader();
+            Check if the response was successful with response.ok
+            Reading a cloned response or request with not cause the original to be marked as read.
+            You can add, edit, get, and delete parts of a Headers object. This can be used to check if a certain type of data has truly been returned by the server.
+            You can create your own Request and Response objects.
+            Request and Response methods: arrayBuffer(), blob(), formData(), json(), text().
 
         </p>
 
