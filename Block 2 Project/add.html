@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Add Game</title>
+    </head>
+    <body>
+        <form id="addGame">
+            <label for="name">Title: </label>
+            <input class="not-found" type="text" id="name" name="name" required>
+
+            <div id="suggested-games">
+
+            </div>
+
+            <div>
+                <label for="owned">Owned: </label>
+                <input type="checkbox" id="owned" name="owned" required>
+
+                <label for="completed">Completed: </label>
+                <input type="checkbox" id="completed" name="completed" required>
+            </div>
+
+            <label for="rating">Your Rating(1-100): </label>
+            <input type="number" id="rating" name="rating" min="1" max="100">
+
+            <div id="user-time">
+                <label for="hours">Your Play Time: Hours: </label>
+                <input type="number" id="hours" name="hours">
+                <label for="minutes">Minutes: </label>
+                <input type="number" id="minutes" name="minutes">
+            </div>
+        </form>
+
+        <script type="module" src="add.js"></script>
+    </body>
+</html>
