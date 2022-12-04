@@ -7,6 +7,8 @@ function searchSortFilter(searchString, sortString, filterStrings)
     userGames = search(userGames, searchString);
     userGames = sort(userGames, sortString);
     userGames = filter(userGames, filterStrings);
+
+    return userGames;
 }
 
 function search(games, searchString) {
