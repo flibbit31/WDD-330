@@ -3,7 +3,7 @@ import { getDataWithRequest, buildOriginalURL, buildRequest } from "./eAPI.js";
 
 search("Xenoblade");
 
-async function search(name, numGames = -1) {
+export async function search(name, numGames = -1) {
     const baseURL = buildOriginalURL();
     const url = `${baseURL}&search=${name}`;
     const request = buildRequest(url);
@@ -17,7 +17,9 @@ async function search(name, numGames = -1) {
 
     let games = new Array(numGames);
     for(let i = 0; i < games.length; i++) {
-        games[i] = new Game(data.results[i]);
+        if (data.results[i] !== undefined) {
+            games[i] = new Game(data.results[i]);
+        }
     }
 
     return games;

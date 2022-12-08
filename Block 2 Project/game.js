@@ -51,13 +51,18 @@ export default class Game {
         return p;
     }
 
-    setPlayTimeInHours(hours) {
+    /*setPlayTimeInHours(hours) {
         //convert hours to minutes
         this.playTime = hours * 60;
+    }*/
+
+    setUserPlayTimeInHours(hours) {
+        //convert hours to minutes
+        this.userPlayTime = hours * 60;
     }
 
     setUserPlayTimeInHoursAndMinutes(hours, minutes) {
-        //convert hours to minutes
+        //convert hours and minutes to minutes
         this.userPlayTime = hours * 60 + minutes;
     }
 }

@@ -1,6 +1,6 @@
 import { getPageOfGames } from "./gameLibraryController.js"
 
-let page = 1;
+let page = -1;
 const gamesPerPage = 6;
 
 let searchString = "";
