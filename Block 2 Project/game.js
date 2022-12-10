@@ -13,8 +13,9 @@ export default class Game {
         //user data defaults
         this.completed = false;
         this.owned = false;
-        this.rating = -1; //-1 means no rating
+        this.rating = 101; //101 means no rating
         this.userPlayTime = 0; //user's playing time in minutes.
+        this.added = null;
     }
 
     extractESRBRating(rawGame) {

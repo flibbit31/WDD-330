@@ -8,7 +8,7 @@ export function getPageOfGames(gamesPerPage, pageNum, searchString, sortString, 
         return null;
     }
 
-    let pageOfGames = new Array(gamesPerPage);
+    let pageOfGames = new Array();
     for (let i = 0; (i < gamesPerPage) && ((index + i) < allGames.length); i++) {
         //this might not be a full page
 

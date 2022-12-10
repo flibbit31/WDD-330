@@ -105,9 +105,12 @@ async function submitForm(e) {
         }
     }
 
+    //add date and time of game being added to library
+    game.added = new Date();
+
     //add game to saved games library
     addGame(game);
 
-    console.log("Added Game: ");
-    console.log(game);
+    //go back to library
+    location.href="gameLibrary.html";
 }

@@ -30,7 +30,7 @@ export function buildRequest(url) {
 
 export function buildOriginalURL() {
     const base = "https://api.rawg.io/api/games";
-    const key = "";
+    const key = "6ada6d8ad52f49eaaf0a1fabddeca217";
     const url = base + "?key=" + key;
     return url;
 }
