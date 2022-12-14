@@ -15,8 +15,8 @@ export async function search(name, numGames = -1) {
         numGames = data.results.length;
     }
 
-    let games = new Array(numGames);
-    for(let i = 0; i < games.length; i++) {
+    let games = new Array();
+    for(let i = 0; i < numGames; i++) {
         if (data.results[i] !== undefined) {
             games[i] = new Game(data.results[i]);
         }

@@ -1,0 +1,29 @@
+h1 {
+    color:brown;
+    text-align: center;
+}
+
+h3 {
+
+}
+
+.grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#column1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#details {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#addGameButton {
+    color:brown;
+    height: 100px;
+    vertical-align:top;
+}

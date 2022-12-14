@@ -1,4 +1,5 @@
 import { searchSortFilter } from "./internalSearchSortFilter.js";
+import { loadGames } from "./ls.js";
 
 export function getPageOfGames(gamesPerPage, pageNum, searchString, sortString, filters) {
     let allGames = searchSortFilter(searchString, sortString, filters);
@@ -16,4 +17,19 @@ export function getPageOfGames(gamesPerPage, pageNum, searchString, sortString, 
     }
 
     return pageOfGames;
+}
+
+export function getGameById(id) {
+    const games = loadGames();
+
+    let foundGame = null;
+
+    for(let i = 0; i < games.length; i++) {
+        if (id === games[i].id) {
+            foundGame = games[i];
+            break;
+        }
+    }
+
+    return foundGame;
 }

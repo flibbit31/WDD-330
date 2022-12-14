@@ -49,6 +49,7 @@ async function titleChanged(e) {
         let platformsElement = document.createElement("ul");
         platformsElement.style.pointerEvents = "none";
         let platforms = games[i].platforms;
+        console.log(`Platforms: ${platforms}`);
         platforms.forEach(platform => {
             let platformElement = document.createElement("li");
             platformElement.innerHTML = platform;
@@ -96,7 +97,7 @@ async function submitForm(e) {
     if (hoursElement.value !== "") {
         if (minutesElement.value !== "") {
             //game.setUserPlayTimeInHoursAndMinutes(hoursElement.value, minutesElement.value);
-            game.userPlayTime = hoursElement.value * 60 + minutesElement.value;
+            game.userPlayTime = (Number(hoursElement.value) * 60) + Number(minutesElement.value);
         }
 
         else {

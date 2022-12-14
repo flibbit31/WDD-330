@@ -2,9 +2,11 @@
 <html>
     <head>
         <title>Your Game Library</title>
+        <link rel="stylesheet" href="gameLibrary.css">
     </head>
 
     <body>
+        <h1>Game Library</h1>
         <form id="bars">
             <input type="text" id="search" placeholder="search">
 
@@ -16,7 +18,6 @@
                 <option value="esrb">ESRB Rating</option>
                 <option value="metacritic">Metacritic Rating</option>
                 <option value="release">Release Date</option>
-                <option value="update">Update Date</option>
             </select>
 
             <div id="filter">
@@ -33,16 +34,27 @@
                 <input type="checkbox" id="unowned" name="unowned" checked>
             </div>
         </form>
-        
-        <div class="grid" id="games">
-            
-        </div>
 
-        <div id="buttons">
-            <input type="image" src="Project 2 Left Arrow.png" id="previous">
-            <button type="button" onclick="window.location='add.html'">Add Game</button>
-            <input type="image" src="Project 2 Right Arrow.png" id="next">
-            <button type="button" id="clear">Clear Library</button>
+        
+        <div id="columns" class="grid">
+
+            <div id="column1">
+        
+                <div id="games"></div>
+
+                <div id="buttons">
+                    <input type="image" src="Project 2 Left Arrow.png" id="previous">
+                    <button id="addGameButton" type="button" onclick="window.location='add.html'">Add Game</button>
+                    <input type="image" src="Project 2 Right Arrow.png" id="next">
+                    <button type="button" id="clear">Clear Library</button>
+                </div>
+
+            </div>
+
+            <div id="details">
+
+            </div>
+
         </div>
 
         <script type="module" src="gameLibrary.js"></script>

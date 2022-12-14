@@ -98,53 +98,63 @@ function compareNullCheck(a, b) {
 }
 
 function compareAlphabetical(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
+    }
+
+    const nullCheckAlphebetical = compareNullCheck(a.name, b.name);
+    if(nullCheckAlphebetical !== -2) {
+        return nullCheckAlphebetical;
     }
     
     return a.name.localeCompare(b.name);
 }
 
 function compareAdded(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
     }
 
-    if (a.added.getTime() < b.added.getTime()) {
-        return -1;
+    const nullCheckAdded = compareNullCheck(a.added, b.added);
+    if(nullCheckAdded !== -2) {
+        return nullCheckAdded;
     }
 
-    else if(a.added.getTime() === b.added.getTime()) {
-        return 0;
-    }
-
-    else {
-        return 1;
-    }
+    return new Date(a.added).getTime() - new Date(b.added).getTime();
 }
 
 function compareRating(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
+    }
+
+    const nullCheckRating = compareNullCheck(a.rating, b.rating);
+    if(nullCheckRating !== -2) {
+        return nullCheckRating;
     }
     
     return a.rating - b.rating;
 }
 
 function compareUserPlayTime(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
+    }
+
+    const nullCheckUserPlayTime = compareNullCheck(a.userPlayTime, b.userPlayTime);
+    if(nullCheckUserPlayTime !== -2) {
+        return nullCheckUserPlayTime;
     }
     
     return a.userPlayTime - b.userPlayTime;
 }
 
 function compareESRB(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
     }
@@ -152,15 +162,19 @@ function compareESRB(a, b) {
     let ratingA = null;
     let ratingB = null;
 
-    if(a.esrbRating !== null && b.esrbRating !== null) {
+    if(a.esrbRating !== null) {
         //we don't want to worry about case
         ratingA = a.esrbRating.toLowerCase();
+        
+    }
+
+    if(b.esrbRating !== null) {
         ratingB = b.esrbRating.toLowerCase();
     }
 
     //assign a number to each rating, "everyone" being the lowest at 0
     //and unknown at 5
-    let ratingNumA = -1;
+    let ratingNumA = 5;
     if(ratingA === "everyone") {
         ratingNumA = 0;
     }
@@ -185,7 +199,7 @@ function compareESRB(a, b) {
         ratingNumA = 5;
     }
 
-    let ratingNumB = -1;
+    let ratingNumB = 5;
     if(ratingB === "everyone") {
         ratingNumB = 0;
     }
@@ -214,18 +228,28 @@ function compareESRB(a, b) {
 }
 
 function compareMetacritic(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
+    }
+
+    const nullCheckMetacritic = compareNullCheck(a.metacritic, b.metacritic);
+    if(nullCheckMetacritic !== -2) {
+        return nullCheckMetacritic;
     }
     
     return a.metacritic - b.metacritic;
 }
 
 function compareRelease(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
+    }
+
+    const nullCheckRelease = compareNullCheck(a.release, b.release);
+    if(nullCheckRelease !== -2) {
+        return nullCheckRelease;
     }
     
     //convert to Date format first
@@ -237,9 +261,14 @@ function compareRelease(a, b) {
 }
 
 function compareUpdate(a, b) {
-    let nullCheck = compareNullCheck(a, b);
+    const nullCheck = compareNullCheck(a, b);
     if(nullCheck !== -2) {
         return nullCheck;
+    }
+
+    const nullCheckUpdate = compareNullCheck(a.update, b.update);
+    if(nullCheckUpdate !== -2) {
+        return nullCheckUpdate;
     }
     
     //convert to Date format first
