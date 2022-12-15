@@ -175,12 +175,16 @@ function showDetails(game) {
     let gameDiv = document.getElementById("details");
     gameDiv.innerHTML = "";
 
+    let detailsTitleElement = document.createElement("h2");
+    detailsTitleElement.innerHTML = "Game Details";
+    gameDiv.appendChild(detailsTitleElement);
+
     let titleElement = document.createElement("h2");
     titleElement.innerHTML = game.name;
     gameDiv.appendChild(titleElement);
 
     let metacriticElement = document.createElement("p");
-    metacriticElement.innerHTML = game.metacritic;
+    metacriticElement.innerHTML = `Metacritic Score: ${game.metacritic}`;
     gameDiv.appendChild(metacriticElement);
 
     let ratingElement = document.createElement("p");
@@ -223,7 +227,7 @@ function showDetails(game) {
     ownedElement.checked = game.owned;
     ownedElement.disabled = true;
     gameDiv.appendChild(ownedElement);
-    
+
     let completedLabel = document.createElement("label");
     completedLabel.setAttribute("for", `completed-${game.id}`);
     completedLabel.innerHTML = "completed";
@@ -237,7 +241,7 @@ function showDetails(game) {
     gameDiv.appendChild(completedElement);
 
     let esrbElement = document.createElement("p");
-    esrbElement.innerHTML = game.esrbRating;
+    esrbElement.innerHTML = `ESRB Rating: ${game.esrbRating}`;
     gameDiv.appendChild(esrbElement);
 
     /*let playTimeElement = document.createElement("p");

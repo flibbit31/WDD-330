@@ -54,6 +54,11 @@ const links = [
     {
         label: "Week 11",
         url: "week11/index.html"
+    },
+
+    {
+        label: "Challenge Two",
+        url: "Block 2 Project/gameLibrary.html"
     }
 ];
 
